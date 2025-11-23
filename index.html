@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integralen Studie Gids</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="nav-header">
+            <h2>Integralen</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#basisconcepten" class="nav-link">Basisconcepten</a></li>
+            <li><a href="#integratietechnieken" class="nav-link">Integratietechnieken</a></li>
+            <li><a href="#oefeningen" class="nav-link">Oefeningen</a></li>
+            <li><a href="#toepassingen" class="nav-link">Toepassingen</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <section id="home" class="page active">
+            <h1>Integralen Studie Gids</h1>
+            <div class="overview">
+                <p>Welkom bij de studie van integralen! Deze gids is ontworpen voor Nederlandse studenten die de kunst van het integreren willen beheersen.</p>
+            </div>
+
+            <div class="modules">
+                <div class="module-card">
+                    <h3><a href="#basisconcepten">Basisconcepten</a></h3>
+                    <ul>
+                        <li>Fundamenten van integralen</li>
+                        <li>Primitieve functies</li>
+                        <li>Bepaalde en onbepaalde integralen</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <h3><a href="#integratietechnieken">Integratietechnieken</a></h3>
+                    <ul>
+                        <li>Substitutiemethode</li>
+                        <li>Partiële integratie</li>
+                        <li>Meten van rationale functies</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <h3><a href="#oefeningen">Oefeningen</a></h3>
+                    <ul>
+                        <li>Basis oefeningen</li>
+                        <li>Geavanceerde problemen</li>
+                        <li>Examen stijl vragen</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <h3><a href="#toepassingen">Toepassingen</a></h3>
+                    <ul>
+                        <li>Oppervlakte berekeningen</li>
+                        <li>Volume berekeningen</li>
+                        <li>Natuurkundige toepassingen</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="study-path">
+                <h2>Studiepad</h2>
+                <ol>
+                    <li>Begin met de basisconcepten</li>
+                    <li>Oefen de verschillende technieken</li>
+                    <li>Werk door de oefeningen heen</li>
+                    <li>Pas je kennis toe in echte problemen</li>
+                </ol>
+            </div>
+
+            <div class="important-formulas">
+                <h2>Belangrijke Formules</h2>
+                <div class="formula">
+                    <span class="math">∫ f(x) dx = F(x) + C</span>
+                </div>
+                <div class="formula">
+                    <span class="math">∫<sub>a</sub><sup>b</sup> f(x) dx = F(b) - F(a)</span>
+                </div>
+            </div>
+
+            <div class="tips">
+                <h2>Tips</h2>
+                <ul>
+                    <li>Oefen dagelijks</li>
+                    <li>Begrijp de concepten, niet alleen de formules</li>
+                    <li>Visualiseer de problemen waar mogelijk</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="basisconcepten" class="page">
+            <h1>Basisconcepten van Integralen</h1>
+
+            <h2>Wat is een Integrale?</h2>
+            <p>Een integraal is het tegenovergestelde van differentiëren. Het vinden van een integraal wordt ook wel integreren genoemd.</p>
+
+            <h3>Primitieve Functie</h3>
+            <p>Een functie F(x) heet een primitieve van f(x) als:</p>
+            <div class="formula">
+                <span class="math">F'(x) = f(x)</span>
+            </div>
+
+            <div class="example">
+                <p><strong>Voorbeeld:</strong><br>
+                Als f(x) = 2x, dan is F(x) = x² + C</p>
+            </div>
+
+            <h3>Constante van Integratie</h3>
+            <p>Omdat de afgeleide van een constante 0 is, voegen we altijd een constante C toe:</p>
+            <div class="formula">
+                <span class="math">∫ f(x) dx = F(x) + C</span>
+            </div>
+
+            <h2>Bepaalde vs Onbepaalde Integralen</h2>
+
+            <h3>Onbepaalde Integrale</h3>
+            <div class="formula">
+                <span class="math">∫ f(x) dx = F(x) + C</span>
+            </div>
+            <ul>
+                <li>Geeft een familie van functies</li>
+                <li>Resultaat bevat altijd +C</li>
+            </ul>
+
+            <h3>Bepaalde Integrale</h3>
+            <div class="formula">
+                <span class="math">∫<sub>a</sub><sup>b</sup> f(x) dx = F(b) - F(a)</span>
+            </div>
+            <ul>
+                <li>Geeft een specifieke numerieke waarde</li>
+                <li>Geen constante C nodig</li>
+            </ul>
+
+            <h2>Basis Integratieregels</h2>
+
+            <h3>Machten</h3>
+            <div class="formula">
+                <span class="math">∫ x<sup>n</sup> dx = x<sup>(n+1)</sup>/(n+1) + C  (n ≠ -1)</span>
+            </div>
+
+            <h3>Constante</h3>
+            <div class="formula">
+                <span class="math">∫ k dx = kx + C</span>
+            </div>
+
+            <h3>Som</h3>
+            <div class="formula">
+                <span class="math">∫ [f(x) + g(x)] dx = ∫ f(x) dx + ∫ g(x) dx</span>
+            </div>
+
+            <h3>Constante Voorvoegsel</h3>
+            <div class="formula">
+                <span class="math">∫ k·f(x) dx = k·∫ f(x) dx</span>
+            </div>
+
+            <h2>Standaard Integralen</h2>
+            <div class="formula-list">
+                <div class="formula">
+                    <span class="math">∫ sin(x) dx = -cos(x) + C</span>
+                </div>
+                <div class="formula">
+                    <span class="math">∫ cos(x) dx = sin(x) + C</span>
+                </div>
+                <div class="formula">
+                    <span class="math">∫ e<sup>x</sup> dx = e<sup>x</sup> + C</span>
+                </div>
+                <div class="formula">
+                    <span class="math">∫ 1/x dx = ln|x| + C</span>
+                </div>
+            </div>
+
+            <h2>Fundamentele Stelling van de Calculus</h2>
+            <p>Als F(x) een primitieve is van f(x), dan:</p>
+            <div class="formula">
+                <span class="math">∫<sub>a</sub><sup>b</sup> f(x) dx = F(b) - F(a)</span>
+            </div>
+
+            <h2>Belangrijke Concepten</h2>
+            <ul>
+                <li><strong>Anti-afgeleide</strong>: Een andere term voor primitieve functie</li>
+                <li><strong>Differentaal</strong>: Klein stukje van de x-as (dx)</li>
+                <li><strong>Limiet</strong>: Aanpakken van een waarde</li>
+            </ul>
+
+            <h2>Veelvoorkomende Fouten</h2>
+            <ol>
+                <li>Vergeet niet de constante C toe te voegen</li>
+                <li>Controleer je antwoord door te differentiëren</li>
+                <li>Wees voorzichtig met absolute waarden bij ln</li>
+            </ol>
+
+            <h2>Visualisatie</h2>
+            <p>Een bepaalde integraal representeert het oppervlak onder de curve tussen x=a en x=b.</p>
+        </section>
+
+        <section id="integratietechnieken" class="page">
+            <h1>Integratietechnieken</h1>
+
+            <h2>Substitutiemethode</h2>
+            <p>De substitutiemethode is handig als je een functie en haar afgeleide in de integraal ziet.</p>
+
+            <h3>Algoritme</h3>
+            <ol>
+                <li>Kies u = binnenste functie</li>
+                <li>Bereken du/dx</li>
+                <li>Vervang dx door du/du/dx</li>
+                <li>Integreer met u</li>
+                <li>Vervang u terug</li>
+            </ol>
+
+            <div class="example">
+                <h4>Voorbeeld 1</h4>
+                <div class="formula">
+                    <span class="math">∫ 2x·(x² + 1)³ dx</span>
+                </div>
+                <p><strong>Stap 1:</strong> u = x² + 1<br>
+                <strong>Stap 2:</strong> du/dx = 2x → du = 2x dx<br>
+                <strong>Stap 3:</strong> ∫ u³ du<br>
+                <strong>Stap 4:</strong> u⁴/4 + C<br>
+                <strong>Stap 5:</strong> (x² + 1)⁴/4 + C</p>
+            </div>
+
+            <h2>Partiële Integratie</h2>
+            <p>Gebaseerd op de productregel: ∫ u dv = uv - ∫ v du</p>
+
+            <h3>Wanneer gebruiken?</h3>
+            <ul>
+                <li>Product van functies waarbij één makkelijk integreerbaar is</li>
+                <li>Logaritmische functies</li>
+                <li>Inverse trigonometrische functies</li>
+            </ul>
+
+            <div class="example">
+                <h4>Voorbeeld</h4>
+                <div class="formula">
+                    <span class="math">∫ x·e<sup>x</sup> dx</span>
+                </div>
+                <p>u = x → du = dx<br>
+                dv = e<sup>x</sup> dx → v = e<sup>x</sup></p>
+                <div class="formula">
+                    <span class="math">∫ x·e<sup>x</sup> dx = x·e<sup>x</sup> - ∫ e<sup>x</sup> dx = x·e<sup>x</sup> - e<sup>x</sup> + C = e<sup>x</sup>(x - 1) + C</span>
+                </div>
+            </div>
+
+            <h2>Integreren van Rationale Functies</h2>
+
+            <h3>Complexe Breuken (Breuksplitsing)</h3>
+            <div class="example">
+                <div class="formula">
+                    <span class="math">∫ 1/(x²-1) dx</span>
+                </div>
+                <p><strong>Factoriseer:</strong> 1/(x²-1) = 1/((x-1)(x+1))</p>
+                <p><strong>Breuksplitsing:</strong> A/(x-1) + B/(x+1)</p>
+                <p><strong>Los op:</strong> 1 = A(x+1) + B(x-1)</p>
+                <p>x = 1 → 1 = 2A → A = 1/2</p>
+                <p>x = -1 → 1 = -2B → B = -1/2</p>
+                <p>Dus: ∫ [1/2·1/(x-1) - 1/2·1/(x+1)] dx = 1/2·ln|x-1| - 1/2·ln|x+1| + C</p>
+            </div>
+
+            <h2>Strategieën</h2>
+            <ol>
+                <li><strong>Kijk eerst naar substitutie</strong> - herken je f(x) en f'(x)?</li>
+                <li><strong>Probeer partiële integratie</strong> - zie je een product?</li>
+                <li><strong>Breuksplitsing voor rationale functies</strong></li>
+                <li><strong>Complexe completering</strong> voor kwadratische noemers</li>
+                <li><strong>Trigonometrische identiteiten</strong> voor sin/cos</li>
+            </ol>
+
+            <h2>Geheugensteun</h2>
+            <p><strong>LIATE-regel voor partiële integratie:</strong></p>
+            <ul>
+                <li><strong>L</strong>ogaritmische functies (als u)</li>
+                <li><strong>I</strong>nverse trigonometrische functies (als u)</li>
+                <li><strong>A</strong>lgemene functies (als u)</li>
+                <li><strong>T</strong>rigonometrische functies (als u)</li>
+                <li><strong>E</strong>xponentiële functies (als u)</li>
+            </ul>
+            <p>De functie die eerst in de lijst verschijnt, kies je als u.</p>
+        </section>
+
+        <section id="oefeningen" class="page">
+            <h1>Oefeningen Integralen</h1>
+
+            <h2>Basis Oefeningen</h2>
+
+            <h3>Machten</h3>
+            <ol>
+                <li>∫ x³ dx = ?</li>
+                <li>∫ 4x² dx = ?</li>
+                <li>∫ √x dx = ?</li>
+            </ol>
+
+            <details class="solution">
+                <summary>Oplossingen</summary>
+                <ol>
+                    <li>x⁴/4 + C</li>
+                    <li>4x³/3 + C</li>
+                    <li>2/3·x^3/2 + C</li>
+                </ol>
+            </details>
+
+            <h3>Exponentiële en Logaritmische Functies</h3>
+            <ol>
+                <li>∫ e^(2x) dx = ?</li>
+                <li>∫ 3^x dx = ?</li>
+                <li>∫ 1/(2x+1) dx = ?</li>
+            </ol>
+
+            <details class="solution">
+                <summary>Oplossingen</summary>
+                <ol>
+                    <li>e^(2x)/2 + C</li>
+                    <li>3^x/ln(3) + C</li>
+                    <li>1/2·ln|2x+1| + C</li>
+                </ol>
+            </details>
+
+            <h2>Substitutie Oefeningen</h2>
+
+            <h3>Niveau 1</h3>
+            <ol>
+                <li>∫ (2x+1)³ dx</li>
+                <li>∫ x·e^(x²) dx</li>
+                <li>∫ sin(x)·cos²(x) dx</li>
+            </ol>
+
+            <details class="solution">
+                <summary>Oplossingen</summary>
+                <ol>
+                    <li>(2x+1)⁴/8 + C</li>
+                    <li>e^(x²)/2 + C</li>
+                    <li>-cos³(x)/3 + C</li>
+                </ol>
+            </details>
+
+            <h2>Partiële Integratie Oefeningen</h2>
+
+            <h3>Basis</h3>
+            <ol>
+                <li>∫ x·sin(x) dx</li>
+                <li>∫ ln(x) dx</li>
+                <li>∫ x·e^(2x) dx</li>
+            </ol>
+            <p><strong>Tip voor ln(x): kies u = ln(x), dv = dx</strong></p>
+
+            <details class="solution">
+                <summary>Oplossingen</summary>
+                <ol>
+                    <li>-x·cos(x) + sin(x) + C</li>
+                    <li>x·ln(x) - x + C</li>
+                    <li>x·e^(2x)/2 - e^(2x)/4 + C</li>
+                </ol>
+            </details>
+
+            <h2>Bepaalde Integralen</h2>
+
+            <h3>Basis</h3>
+            <ol>
+                <li>∫₀¹ x² dx = ?</li>
+                <li>∫₀^π sin(x) dx = ?</li>
+                <li>∫₁² 1/x dx = ?</li>
+            </ol>
+
+            <details class="solution">
+                <summary>Oplossingen</summary>
+                <ol>
+                    <li>1/3</li>
+                    <li>2</li>
+                    <li>ln(2)</li>
+                </ol>
+            </details>
+
+            <h2>Studietips</h2>
+            <ul>
+                <li>Controleer altijd je antwoorden door differentiëren</li>
+                <li>Teken de functies om het oppervlak te visualiseren</li>
+                <li>Oefen dagelijks 15-20 minuten</li>
+                <li>Werk in volgorde van moeilijkheid</li>
+            </ul>
+        </section>
+
+        <section id="toepassingen" class="page">
+            <h1>Toepassingen van Integralen</h1>
+
+            <h2>Oppervlakte Berekeningen</h2>
+
+            <h3>Tussen twee functies</h3>
+            <p>Het oppervlak tussen f(x) en g(x) van a tot b:</p>
+            <div class="formula">
+                <span class="math">A = ∫<sub>a</sub><sup>b</sup> [f(x) - g(x)] dx</span>
+            </p>
+            <p>waarbij f(x) ≥ g(x) op [a,b]</p>
+
+            <div class="example">
+                <h4>Voorbeeld: Oppervlak tussen y = x² en y = 2x</h4>
+                <p><strong>Vind snijpunten:</strong> x² = 2x → x² - 2x = 0 → x(x-2) = 0<br>
+                <strong>Snijpunten bij x = 0 en x = 2</strong></p>
+                <p><strong>Bovenste functie:</strong> 2x<br>
+                <strong>Onderste functie:</strong> x²</p>
+                <div class="formula">
+                    <span class="math">A = ∫₀² [2x - x²] dx = [x² - x³/3]₀² = 4 - 8/3 = 4/3</span>
+                </div>
+            </div>
+
+            <h2>Volume Berekeningen</h2>
+
+            <h3>Schijfmethode</h3>
+            <p>Rotatie om de x-as:</p>
+            <div class="formula">
+                <span class="math">V = π∫<sub>a</sub><sup>b</sup> [f(x)]² dx</span>
+            </p>
+
+            <div class="example">
+                <h4>Voorbeeld: Volume van paraboloïd</h4>
+                <p>Rotatie van y = √x om de x-as van x = 0 tot x = 4:</p>
+                <div class="formula">
+                    <span class="math">V = π∫₀⁴ (√x)² dx = π∫₀⁴ x dx = π[x²/2]₀⁴ = 8π</span>
+                </div>
+            </div>
+
+            <h3>Cilindermethode</h3>
+            <p>Rotatie om de y-as:</p>
+            <div class="formula">
+                <span class="math">V = 2π∫<sub>a</sub><sup>b</sup> x·f(x) dx</span>
+            </p>
+
+            <h2>Natuurkundige Toepassingen</h2>
+
+            <h3>Werk (Work)</h3>
+            <p>Werk = Kracht × Afstand</p>
+            <div class="formula">
+                <span class="math">W = ∫<sub>a</sub><sup>b</sup> F(x) dx</span>
+            </div>
+
+            <div class="example">
+                <h4>Voorbeeld: Veer</h4>
+                <p>Kracht op veer: F(x) = kx<br>
+                Werk om veer uit te rekken van a tot b:<br>
+                W = ∫<sub>a</sub><sup>b</sup> kx dx = k[x²/2]<sub>a</sub><sup>b</sup></p>
+            </div>
+
+            <h3>Centrum van Massa</h3>
+            <p>Voor een lamina met dichtheid ρ(x):</p>
+            <div class="formula">
+                <span class="math">x̄ = (1/A)∫<sub>a</sub><sup>b</sup> x·ρ(x) dx</span>
+            </div>
+            <div class="formula">
+                <span class="math">ȳ = (1/2A)∫<sub>a</sub><sup>b</sup> [f(x)]² dx</span>
+            </div>
+
+            <h2>Economische Toepassingen</h2>
+
+            <h3>Consumptiersurplus</h3>
+            <div class="formula">
+                <span class="math">CS = ∫₀<sup>Q₀</sup> [D(q) - P₀] dq</span>
+            </div>
+
+            <h3>Producentensurplus</h3>
+            <div class="formula">
+                <span class="math">PS = ∫₀<sup>Q₀</sup> [P₀ - S(q)] dq</span>
+            </div>
+
+            <div class="example">
+                <h4>Voorbeeld: Lineaire vraag</h4>
+                <p><strong>Vraag:</strong> P = 10 - q<br>
+                <strong>Prijs:</strong> P₀ = 6<br>
+                <strong>Hoeveelheid:</strong> Q₀ = 4</p>
+                <div class="formula">
+                    <span class="math">CS = ∫₀⁴ [(10 - q) - 6] dq = ∫₀⁴ (4 - q) dq = [4q - q²/2]₀⁴ = 8</span>
+                </div>
+            </div>
+
+            <h2>Probleemoplossing Strategie</h2>
+            <ol>
+                <li><strong>Identificeer het probleemtype</strong><br>
+                - Oppervlakte, volume, werk, etc.</li>
+                <li><strong>Stel de juiste integraal op</strong><br>
+                - Gebruik de juiste formule<br>
+                - Bepaal de grenzen</li>
+                <li><strong>Los de integraal op</strong><br>
+                - Kies de juiste techniek<br>
+                - Wees precies met berekeningen</li>
+                <li><strong>Interpreteer het resultaat</strong><br>
+                - Geef antwoord in juiste eenheden<br>
+                - Controleer redelijkheid</li>
+            </ol>
+
+            <h2>Controlepunten</h2>
+            <ul>
+                <li><strong>Eenheden:</strong> Zijn alle eenheden consistent?</li>
+                <li><strong>Bereik:</strong> Zijn de grenzen correct?</li>
+                <li><strong>Teken:</strong> Is de integraal positief waar nodig?</li>
+                <li><strong>Realiteit:</strong> Is het antwoord realistisch?</li>
+            </ul>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
