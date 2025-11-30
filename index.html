@@ -3,505 +3,313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Integralen Studie Gids</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Samenvatting & Correctie: Complexe Getallen</title>
+    
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --accent: #f59e0b;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary: #60a5fa;
+                --bg: #0f172a;
+                --text: #f1f5f9;
+                --card-bg: #1e293b;
+                --border: #334155;
+            }
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h1 { margin-bottom: 0.5rem; color: var(--primary); }
+        h2 { margin-top: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { margin-top: 1.5rem; color: var(--primary); }
+        
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .warning {
+            background-color: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .step-by-step {
+            margin-left: 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .step-by-step li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+        }
+
+        .step-by-step li::before {
+            content: "➜";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        code {
+            background: rgba(100,100,100,0.1);
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        nav {
+            background: var(--card-bg);
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border);
+        }
+
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            justify-content: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .correctie-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
-    <nav class="sidebar">
-        <div class="nav-header">
-            <h2>Integralen</h2>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#home" class="nav-link active">Home</a></li>
-            <li><a href="#basisconcepten" class="nav-link">Basisconcepten</a></li>
-            <li><a href="#integratietechnieken" class="nav-link">Integratietechnieken</a></li>
-            <li><a href="#oefeningen" class="nav-link">Oefeningen</a></li>
-            <li><a href="#toepassingen" class="nav-link">Toepassingen</a></li>
+
+<div class="container">
+    <header>
+        <h1>Complexe Getallen ($\mathbb{C}$)</h1>
+        <p>Overzicht &amp; Examenverbetering voor 6 WeWi</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#theorie">De Theorie</a></li>
+            <li><a href="#vraag1">Vraag 1 (Derdegraads)</a></li>
+            <li><a href="#vraag2">Vraag 2 (Meetkunde)</a></li>
+            <li><a href="#vraag3">Vraag 3 (Reële Macht)</a></li>
+            <li><a href="#vraag4">Vraag 4 (Bewijs)</a></li>
         </ul>
     </nav>
 
-    <main class="content">
-        <section id="home" class="page active">
-            <h1>Integralen Studie Gids</h1>
-            <div class="overview">
-                <p>Welkom bij de studie van integralen! Deze gids is ontworpen voor Nederlandse studenten die de kunst van het integreren willen beheersen.</p>
-            </div>
-
-            <div class="modules">
-                <div class="module-card">
-                    <h3><a href="#basisconcepten">Basisconcepten</a></h3>
-                    <ul>
-                        <li>Fundamenten van integralen</li>
-                        <li>Primitieve functies</li>
-                        <li>Bepaalde en onbepaalde integralen</li>
-                    </ul>
-                </div>
-
-                <div class="module-card">
-                    <h3><a href="#integratietechnieken">Integratietechnieken</a></h3>
-                    <ul>
-                        <li>Substitutiemethode</li>
-                        <li>Partiële integratie</li>
-                        <li>Meten van rationale functies</li>
-                    </ul>
-                </div>
-
-                <div class="module-card">
-                    <h3><a href="#oefeningen">Oefeningen</a></h3>
-                    <ul>
-                        <li>Basis oefeningen</li>
-                        <li>Geavanceerde problemen</li>
-                        <li>Examen stijl vragen</li>
-                    </ul>
-                </div>
-
-                <div class="module-card">
-                    <h3><a href="#toepassingen">Toepassingen</a></h3>
-                    <ul>
-                        <li>Oppervlakte berekeningen</li>
-                        <li>Volume berekeningen</li>
-                        <li>Natuurkundige toepassingen</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="study-path">
-                <h2>Studiepad</h2>
-                <ol>
-                    <li>Begin met de basisconcepten</li>
-                    <li>Oefen de verschillende technieken</li>
-                    <li>Werk door de oefeningen heen</li>
-                    <li>Pas je kennis toe in echte problemen</li>
-                </ol>
-            </div>
-
-            <div class="important-formulas">
-                <h2>Belangrijke Formules</h2>
-                <div class="formula">
-                    <span class="math">∫ f(x) dx = F(x) + C</span>
-                </div>
-                <div class="formula">
-                    <span class="math">∫<sub>a</sub><sup>b</sup> f(x) dx = F(b) - F(a)</span>
-                </div>
-            </div>
-
-            <div class="tips">
-                <h2>Tips</h2>
-                <ul>
-                    <li>Oefen dagelijks</li>
-                    <li>Begrijp de concepten, niet alleen de formules</li>
-                    <li>Visualiseer de problemen waar mogelijk</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="basisconcepten" class="page">
-            <h1>Basisconcepten van Integralen</h1>
-
-            <h2>Wat is een Integrale?</h2>
-            <p>Een integraal is het tegenovergestelde van differentiëren. Het vinden van een integraal wordt ook wel integreren genoemd.</p>
-
-            <h3>Primitieve Functie</h3>
-            <p>Een functie F(x) heet een primitieve van f(x) als:</p>
-            <div class="formula">
-                <span class="math">F'(x) = f(x)</span>
-            </div>
-
-            <div class="example">
-                <p><strong>Voorbeeld:</strong><br>
-                Als f(x) = 2x, dan is F(x) = x² + C</p>
-            </div>
-
-            <h3>Constante van Integratie</h3>
-            <p>Omdat de afgeleide van een constante 0 is, voegen we altijd een constante C toe:</p>
-            <div class="formula">
-                <span class="math">∫ f(x) dx = F(x) + C</span>
-            </div>
-
-            <h2>Bepaalde vs Onbepaalde Integralen</h2>
-
-            <h3>Onbepaalde Integrale</h3>
-            <div class="formula">
-                <span class="math">∫ f(x) dx = F(x) + C</span>
-            </div>
+    <section id="theorie">
+        <h2>Deel 1: De Theorie in een Notendop</h2>
+        
+        <div class="card">
+            <h3>1. De Basis</h3>
+            <p>Het probleem in $\mathbb{R}$ is dat $x^2 = -1$ geen oplossing heeft. In $\mathbb{C}$ definiëren we:</p>
+            $$i^2 = -1$$
+            <p>Elk complex getal $z$ is: $z = a + bi$</p>
             <ul>
-                <li>Geeft een familie van functies</li>
-                <li>Resultaat bevat altijd +C</li>
+                <li><strong>$a$</strong> = Reëel deel</li>
+                <li><strong>$b$</strong> = Imaginair deel</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>2. Rekenregels & Vormen</h3>
+            <p><strong>Conjugatum (Toegevoegde):</strong> $\bar{z} = a - bi$. (Verander teken van $i$).</p>
+            <p><strong>Delen:</strong> Vermenigvuldig teller en noemer met de toegevoegde van de noemer.</p>
+            
+            <h4>Polaire Vorm (Goniometrisch)</h4>
+            $$z = r(\cos \theta + i \sin \theta) = r \cdot \text{cis}(\theta)$$
+            <ul>
+                <li><strong>Modulus ($r$):</strong> $\sqrt{a^2 + b^2}$</li>
+                <li><strong>Argument ($\theta$):</strong> $\arctan(b/a)$ (Let op het kwadrant!)</li>
             </ul>
 
-            <h3>Bepaalde Integrale</h3>
-            <div class="formula">
-                <span class="math">∫<sub>a</sub><sup>b</sup> f(x) dx = F(b) - F(a)</span>
+            <div class="warning">
+                <strong>Examen Valkuil:</strong> Als je rekenmachine $\arctan(-1)$ berekent, geeft hij $-45^\circ$. Maar als je punt $(-1, 1)$ is, lig je in het 2de kwadrant ($135^\circ$). Tel er $180^\circ$ bij op als het reële deel negatief is!
             </div>
-            <ul>
-                <li>Geeft een specifieke numerieke waarde</li>
-                <li>Geen constante C nodig</li>
+        </div>
+
+        <div class="card">
+            <h3>3. Formule van De Moivre</h3>
+            <p>Cruciaal voor machten en wortels:</p>
+            $$z^n = r^n \cdot \text{cis}(n \cdot \theta)$$
+        </div>
+
+        <div class="card">
+            <h3>4. $n$-de Machtswortels</h3>
+            <p>Om $z^n = w$ op te lossen:</p>
+            <ol>
+                <li>Schrijf $w$ in polaire vorm ($r, \theta$).</li>
+                <li>De eerste oplossing heeft modulus $\sqrt[n]{r}$ en hoek $\theta / n$.</li>
+                <li>De andere oplossingen vind je door er telkens $\frac{360^\circ}{n}$ bij op te tellen.</li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="exam">
+        <h2>Deel 2: Examen Verbetering <span class="correctie-badge">Stap voor Stap</span></h2>
+        <p>Hieronder de uitwerking van de toets, uitgelegd vanuit de basisprincipes.</p>
+
+        <div id="vraag1" class="card">
+            <h3>Vraag 1: De Derdegraadsvergelijking</h3>
+            <p><strong>Opgave:</strong> Toon aan dat $iz^3 - (3+i)z^2 - (9+2i)z - 6 + 8i = 0$ een zuiver imaginaire wortel heeft.</p>
+            
+            <h4>Uitleg:</h4>
+            <ul class="step-by-step">
+                <li>Een "zuiver imaginaire wortel" ziet eruit als $z = bi$ (geen reëel deel).</li>
+                <li>Vervang elke $z$ in de vergelijking door $bi$.</li>
+                <li>Denk eraan: $(bi)^2 = -b^2$ en $(bi)^3 = -b^3i$.</li>
+                <li>Splits de uitkomst in een Reëel deel en een Imaginair deel.</li>
+                <li><strong>Reëel deel wordt:</strong> $b^3 + 3b^2 + 2b - 6 = 0$.</li>
+                <li><strong>Imaginair deel wordt:</strong> $b^2 - 9b + 8 = 0$.</li>
+                <li>Los het imaginaire deel op (discriminant): je vindt $b=1$ en $b=8$.</li>
+                <li>Test welke van de twee ook het reële deel 0 maakt. $b=1$ werkt!</li>
             </ul>
+            <p><strong>Antwoord:</strong> $z = i$ (want $b=1$).</p>
+            <hr>
+            <p><strong>Deel B (Som van de wortels):</strong><br>
+            Gebruik de regel: Som = $-b/a$ (let op: dit zijn de coëfficiënten van de veelterm, niet $a+bi$).<br>
+            Som = $-\frac{-(3+i)}{i} = \frac{3+i}{i} = \frac{3}{i} + 1 = 1 - 3i$.</p>
+        </div>
 
-            <h2>Basis Integratieregels</h2>
+        <div id="vraag2" class="card">
+            <h3>Vraag 2: Meetkundige Vragen (Multiple Choice)</h3>
+            
+            <h4>1. De Cirkel en Bissectrices</h4>
+            <p>We hebben $z_1$ op $45^\circ$ en $z_2$ op $135^\circ$ (2de bissectrice).</p>
+            <p>Product $z_1 \cdot z_2$ betekent <strong>hoeken optellen</strong>.</p>
+            $$45^\circ + 135^\circ = 180^\circ$$
+            <p>Op de cirkel ligt $180^\circ$ helemaal links (Punt C).</p>
 
-            <h3>Machten</h3>
-            <div class="formula">
-                <span class="math">∫ x<sup>n</sup> dx = x<sup>(n+1)</sup>/(n+1) + C  (n ≠ -1)</span>
-            </div>
+            <h4>2. De Gelijkzijdige Driehoek</h4>
+            <p>Om van punt A naar B te gaan in een gelijkzijdige driehoek (tegen de klok in), draai je $60^\circ$.</p>
+            <p>Draaien is vermenigvuldigen met $\text{cis}(60^\circ)$.<br>
+            <strong>Antwoord:</strong> $z \cdot (\cos 60^\circ + i \sin 60^\circ)$.</p>
 
-            <h3>Constante</h3>
-            <div class="formula">
-                <span class="math">∫ k dx = kx + C</span>
-            </div>
+            <h4>3. Meetkundige Plaats $|z - 1 - i| = |z|$</h4>
+            <p>Dit betekent: "De afstand van $z$ tot punt $(1,1)$ is gelijk aan de afstand tot $(0,0)$".</p>
+            <p>De verzameling punten die even ver ligt van twee punten, is de <strong>middelloodlijn</strong>. De lijn tussen $(0,0)$ en $(1,1)$ is de 1ste bissectrice ($y=x$). De middelloodlijn staat daar loodrecht op.</p>
+            <p><strong>Antwoord:</strong> Evenwijdig met de 2de bissectrice ($y=-x$).</p>
+        </div>
 
-            <h3>Som</h3>
-            <div class="formula">
-                <span class="math">∫ [f(x) + g(x)] dx = ∫ f(x) dx + ∫ g(x) dx</span>
-            </div>
-
-            <h3>Constante Voorvoegsel</h3>
-            <div class="formula">
-                <span class="math">∫ k·f(x) dx = k·∫ f(x) dx</span>
-            </div>
-
-            <h2>Standaard Integralen</h2>
-            <div class="formula-list">
-                <div class="formula">
-                    <span class="math">∫ sin(x) dx = -cos(x) + C</span>
-                </div>
-                <div class="formula">
-                    <span class="math">∫ cos(x) dx = sin(x) + C</span>
-                </div>
-                <div class="formula">
-                    <span class="math">∫ e<sup>x</sup> dx = e<sup>x</sup> + C</span>
-                </div>
-                <div class="formula">
-                    <span class="math">∫ 1/x dx = ln|x| + C</span>
-                </div>
-            </div>
-
-            <h2>Fundamentele Stelling van de Calculus</h2>
-            <p>Als F(x) een primitieve is van f(x), dan:</p>
-            <div class="formula">
-                <span class="math">∫<sub>a</sub><sup>b</sup> f(x) dx = F(b) - F(a)</span>
-            </div>
-
-            <h2>Belangrijke Concepten</h2>
-            <ul>
-                <li><strong>Anti-afgeleide</strong>: Een andere term voor primitieve functie</li>
-                <li><strong>Differentaal</strong>: Klein stukje van de x-as (dx)</li>
-                <li><strong>Limiet</strong>: Aanpakken van een waarde</li>
+        <div id="vraag3" class="card">
+            <h3>Vraag 3: Wanneer is $(\dots)^n$ reëel?</h3>
+            <p><strong>Opgave:</strong> Voor welke $n$ is $\left(\frac{\sqrt{3}+i}{2}\right)^n$ reëel?</p>
+            
+            <h4>"From First Principles" Uitleg:</h4>
+            <ul class="step-by-step">
+                <li><strong>Stap 1: Naar Polair.</strong> Schrijf de binnenkant als goniometrisch getal.
+                    $$r = \sqrt{(\sqrt{3}/2)^2 + (1/2)^2} = 1$$
+                    De hoek is $30^\circ$ (want $\cos = \sqrt{3}/2$ en $\sin = 1/2$).
+                    Dus $z = 1 \cdot \text{cis}(30^\circ)$.
+                </li>
+                <li><strong>Stap 2: De Moivre.</strong>
+                    $$z^n = 1^n \cdot \text{cis}(n \cdot 30^\circ) = \cos(30^\circ n) + i \sin(30^\circ n)$$
+                </li>
+                <li><strong>Stap 3: De Eis.</strong>
+                    "Reëel" betekent dat het imaginaire stuk **nul** moet zijn.
+                    $$\sin(30^\circ n) = 0$$
+                </li>
+                <li><strong>Stap 4: Oplossen.</strong>
+                    De sinus is 0 bij $0^\circ, 180^\circ, 360^\circ...$ (veelvouden van $180^\circ$).
+                    $$30^\circ \cdot n = k \cdot 180^\circ$$
+                    $$n = k \cdot 6$$
+                </li>
             </ul>
+            <p><strong>Antwoord:</strong> $n$ moet een 6-voud zijn.</p>
+        </div>
 
-            <h2>Veelvoorkomende Fouten</h2>
-            <ol>
-                <li>Vergeet niet de constante C toe te voegen</li>
-                <li>Controleer je antwoord door te differentiëren</li>
-                <li>Wees voorzichtig met absolute waarden bij ln</li>
-            </ol>
+        <div id="vraag4" class="card">
+            <h3>Vraag 4: Formules bewijzen</h3>
+            <p><strong>Opgave:</strong> Schrijf $\cos 3x$ in functie van $\cos x$.</p>
+            
+            <h4>De methode:</h4>
+            <p>We berekenen $(\cos x + i \sin x)^3$ op twee manieren en stellen ze aan elkaar gelijk.</p>
+            
+            <p><strong>1. Via De Moivre:</strong><br>
+            $(\cos x + i \sin x)^3 = \cos(3x) + i \sin(3x)$</p>
 
-            <h2>Visualisatie</h2>
-            <p>Een bepaalde integraal representeert het oppervlak onder de curve tussen x=a en x=b.</p>
-        </section>
+            <p><strong>2. Via Binomium $(a+b)^3$:</strong><br>
+            $= \cos^3 x + 3\cos^2 x(i\sin x) + 3\cos x(i\sin x)^2 + (i\sin x)^3$<br>
+            Let op: $i^2 = -1$ en $i^3 = -i$.<br>
+            $= (\cos^3 x - 3\cos x \sin^2 x) + i(3\cos^2 x \sin x - \sin^3 x)$</p>
 
-        <section id="integratietechnieken" class="page">
-            <h1>Integratietechnieken</h1>
+            <p><strong>3. Vergelijken (Reële delen):</strong><br>
+            $\cos(3x) = \cos^3 x - 3\cos x \sin^2 x$<br>
+            Vervang $\sin^2 x$ door $1-\cos^2 x$:<br>
+            $\cos(3x) = 4\cos^3 x - 3\cos x$</p>
+        </div>
+    </section>
 
-            <h2>Substitutiemethode</h2>
-            <p>De substitutiemethode is handig als je een functie en haar afgeleide in de integraal ziet.</p>
+    <footer>
+        <p style="text-align: center; color: #666; font-size: 0.9em; margin-top: 50px;">
+            Gegenereerd door Gemini als studiehulp voor 6de Middelbaar Wiskunde.
+        </p>
+    </footer>
+</div>
 
-            <h3>Algoritme</h3>
-            <ol>
-                <li>Kies u = binnenste functie</li>
-                <li>Bereken du/dx</li>
-                <li>Vervang dx door du/du/dx</li>
-                <li>Integreer met u</li>
-                <li>Vervang u terug</li>
-            </ol>
-
-            <div class="example">
-                <h4>Voorbeeld 1</h4>
-                <div class="formula">
-                    <span class="math">∫ 2x·(x² + 1)³ dx</span>
-                </div>
-                <p><strong>Stap 1:</strong> u = x² + 1<br>
-                <strong>Stap 2:</strong> du/dx = 2x → du = 2x dx<br>
-                <strong>Stap 3:</strong> ∫ u³ du<br>
-                <strong>Stap 4:</strong> u⁴/4 + C<br>
-                <strong>Stap 5:</strong> (x² + 1)⁴/4 + C</p>
-            </div>
-
-            <h2>Partiële Integratie</h2>
-            <p>Gebaseerd op de productregel: ∫ u dv = uv - ∫ v du</p>
-
-            <h3>Wanneer gebruiken?</h3>
-            <ul>
-                <li>Product van functies waarbij één makkelijk integreerbaar is</li>
-                <li>Logaritmische functies</li>
-                <li>Inverse trigonometrische functies</li>
-            </ul>
-
-            <div class="example">
-                <h4>Voorbeeld</h4>
-                <div class="formula">
-                    <span class="math">∫ x·e<sup>x</sup> dx</span>
-                </div>
-                <p>u = x → du = dx<br>
-                dv = e<sup>x</sup> dx → v = e<sup>x</sup></p>
-                <div class="formula">
-                    <span class="math">∫ x·e<sup>x</sup> dx = x·e<sup>x</sup> - ∫ e<sup>x</sup> dx = x·e<sup>x</sup> - e<sup>x</sup> + C = e<sup>x</sup>(x - 1) + C</span>
-                </div>
-            </div>
-
-            <h2>Integreren van Rationale Functies</h2>
-
-            <h3>Complexe Breuken (Breuksplitsing)</h3>
-            <div class="example">
-                <div class="formula">
-                    <span class="math">∫ 1/(x²-1) dx</span>
-                </div>
-                <p><strong>Factoriseer:</strong> 1/(x²-1) = 1/((x-1)(x+1))</p>
-                <p><strong>Breuksplitsing:</strong> A/(x-1) + B/(x+1)</p>
-                <p><strong>Los op:</strong> 1 = A(x+1) + B(x-1)</p>
-                <p>x = 1 → 1 = 2A → A = 1/2</p>
-                <p>x = -1 → 1 = -2B → B = -1/2</p>
-                <p>Dus: ∫ [1/2·1/(x-1) - 1/2·1/(x+1)] dx = 1/2·ln|x-1| - 1/2·ln|x+1| + C</p>
-            </div>
-
-            <h2>Strategieën</h2>
-            <ol>
-                <li><strong>Kijk eerst naar substitutie</strong> - herken je f(x) en f'(x)?</li>
-                <li><strong>Probeer partiële integratie</strong> - zie je een product?</li>
-                <li><strong>Breuksplitsing voor rationale functies</strong></li>
-                <li><strong>Complexe completering</strong> voor kwadratische noemers</li>
-                <li><strong>Trigonometrische identiteiten</strong> voor sin/cos</li>
-            </ol>
-
-            <h2>Geheugensteun</h2>
-            <p><strong>LIATE-regel voor partiële integratie:</strong></p>
-            <ul>
-                <li><strong>L</strong>ogaritmische functies (als u)</li>
-                <li><strong>I</strong>nverse trigonometrische functies (als u)</li>
-                <li><strong>A</strong>lgemene functies (als u)</li>
-                <li><strong>T</strong>rigonometrische functies (als u)</li>
-                <li><strong>E</strong>xponentiële functies (als u)</li>
-            </ul>
-            <p>De functie die eerst in de lijst verschijnt, kies je als u.</p>
-        </section>
-
-        <section id="oefeningen" class="page">
-            <h1>Oefeningen Integralen</h1>
-
-            <h2>Basis Oefeningen</h2>
-
-            <h3>Machten</h3>
-            <ol>
-                <li>∫ x³ dx = ?</li>
-                <li>∫ 4x² dx = ?</li>
-                <li>∫ √x dx = ?</li>
-            </ol>
-
-            <details class="solution">
-                <summary>Oplossingen</summary>
-                <ol>
-                    <li>x⁴/4 + C</li>
-                    <li>4x³/3 + C</li>
-                    <li>2/3·x^3/2 + C</li>
-                </ol>
-            </details>
-
-            <h3>Exponentiële en Logaritmische Functies</h3>
-            <ol>
-                <li>∫ e^(2x) dx = ?</li>
-                <li>∫ 3^x dx = ?</li>
-                <li>∫ 1/(2x+1) dx = ?</li>
-            </ol>
-
-            <details class="solution">
-                <summary>Oplossingen</summary>
-                <ol>
-                    <li>e^(2x)/2 + C</li>
-                    <li>3^x/ln(3) + C</li>
-                    <li>1/2·ln|2x+1| + C</li>
-                </ol>
-            </details>
-
-            <h2>Substitutie Oefeningen</h2>
-
-            <h3>Niveau 1</h3>
-            <ol>
-                <li>∫ (2x+1)³ dx</li>
-                <li>∫ x·e^(x²) dx</li>
-                <li>∫ sin(x)·cos²(x) dx</li>
-            </ol>
-
-            <details class="solution">
-                <summary>Oplossingen</summary>
-                <ol>
-                    <li>(2x+1)⁴/8 + C</li>
-                    <li>e^(x²)/2 + C</li>
-                    <li>-cos³(x)/3 + C</li>
-                </ol>
-            </details>
-
-            <h2>Partiële Integratie Oefeningen</h2>
-
-            <h3>Basis</h3>
-            <ol>
-                <li>∫ x·sin(x) dx</li>
-                <li>∫ ln(x) dx</li>
-                <li>∫ x·e^(2x) dx</li>
-            </ol>
-            <p><strong>Tip voor ln(x): kies u = ln(x), dv = dx</strong></p>
-
-            <details class="solution">
-                <summary>Oplossingen</summary>
-                <ol>
-                    <li>-x·cos(x) + sin(x) + C</li>
-                    <li>x·ln(x) - x + C</li>
-                    <li>x·e^(2x)/2 - e^(2x)/4 + C</li>
-                </ol>
-            </details>
-
-            <h2>Bepaalde Integralen</h2>
-
-            <h3>Basis</h3>
-            <ol>
-                <li>∫₀¹ x² dx = ?</li>
-                <li>∫₀^π sin(x) dx = ?</li>
-                <li>∫₁² 1/x dx = ?</li>
-            </ol>
-
-            <details class="solution">
-                <summary>Oplossingen</summary>
-                <ol>
-                    <li>1/3</li>
-                    <li>2</li>
-                    <li>ln(2)</li>
-                </ol>
-            </details>
-
-            <h2>Studietips</h2>
-            <ul>
-                <li>Controleer altijd je antwoorden door differentiëren</li>
-                <li>Teken de functies om het oppervlak te visualiseren</li>
-                <li>Oefen dagelijks 15-20 minuten</li>
-                <li>Werk in volgorde van moeilijkheid</li>
-            </ul>
-        </section>
-
-        <section id="toepassingen" class="page">
-            <h1>Toepassingen van Integralen</h1>
-
-            <h2>Oppervlakte Berekeningen</h2>
-
-            <h3>Tussen twee functies</h3>
-            <p>Het oppervlak tussen f(x) en g(x) van a tot b:</p>
-            <div class="formula">
-                <span class="math">A = ∫<sub>a</sub><sup>b</sup> [f(x) - g(x)] dx</span>
-            </p>
-            <p>waarbij f(x) ≥ g(x) op [a,b]</p>
-
-            <div class="example">
-                <h4>Voorbeeld: Oppervlak tussen y = x² en y = 2x</h4>
-                <p><strong>Vind snijpunten:</strong> x² = 2x → x² - 2x = 0 → x(x-2) = 0<br>
-                <strong>Snijpunten bij x = 0 en x = 2</strong></p>
-                <p><strong>Bovenste functie:</strong> 2x<br>
-                <strong>Onderste functie:</strong> x²</p>
-                <div class="formula">
-                    <span class="math">A = ∫₀² [2x - x²] dx = [x² - x³/3]₀² = 4 - 8/3 = 4/3</span>
-                </div>
-            </div>
-
-            <h2>Volume Berekeningen</h2>
-
-            <h3>Schijfmethode</h3>
-            <p>Rotatie om de x-as:</p>
-            <div class="formula">
-                <span class="math">V = π∫<sub>a</sub><sup>b</sup> [f(x)]² dx</span>
-            </p>
-
-            <div class="example">
-                <h4>Voorbeeld: Volume van paraboloïd</h4>
-                <p>Rotatie van y = √x om de x-as van x = 0 tot x = 4:</p>
-                <div class="formula">
-                    <span class="math">V = π∫₀⁴ (√x)² dx = π∫₀⁴ x dx = π[x²/2]₀⁴ = 8π</span>
-                </div>
-            </div>
-
-            <h3>Cilindermethode</h3>
-            <p>Rotatie om de y-as:</p>
-            <div class="formula">
-                <span class="math">V = 2π∫<sub>a</sub><sup>b</sup> x·f(x) dx</span>
-            </p>
-
-            <h2>Natuurkundige Toepassingen</h2>
-
-            <h3>Werk (Work)</h3>
-            <p>Werk = Kracht × Afstand</p>
-            <div class="formula">
-                <span class="math">W = ∫<sub>a</sub><sup>b</sup> F(x) dx</span>
-            </div>
-
-            <div class="example">
-                <h4>Voorbeeld: Veer</h4>
-                <p>Kracht op veer: F(x) = kx<br>
-                Werk om veer uit te rekken van a tot b:<br>
-                W = ∫<sub>a</sub><sup>b</sup> kx dx = k[x²/2]<sub>a</sub><sup>b</sup></p>
-            </div>
-
-            <h3>Centrum van Massa</h3>
-            <p>Voor een lamina met dichtheid ρ(x):</p>
-            <div class="formula">
-                <span class="math">x̄ = (1/A)∫<sub>a</sub><sup>b</sup> x·ρ(x) dx</span>
-            </div>
-            <div class="formula">
-                <span class="math">ȳ = (1/2A)∫<sub>a</sub><sup>b</sup> [f(x)]² dx</span>
-            </div>
-
-            <h2>Economische Toepassingen</h2>
-
-            <h3>Consumptiersurplus</h3>
-            <div class="formula">
-                <span class="math">CS = ∫₀<sup>Q₀</sup> [D(q) - P₀] dq</span>
-            </div>
-
-            <h3>Producentensurplus</h3>
-            <div class="formula">
-                <span class="math">PS = ∫₀<sup>Q₀</sup> [P₀ - S(q)] dq</span>
-            </div>
-
-            <div class="example">
-                <h4>Voorbeeld: Lineaire vraag</h4>
-                <p><strong>Vraag:</strong> P = 10 - q<br>
-                <strong>Prijs:</strong> P₀ = 6<br>
-                <strong>Hoeveelheid:</strong> Q₀ = 4</p>
-                <div class="formula">
-                    <span class="math">CS = ∫₀⁴ [(10 - q) - 6] dq = ∫₀⁴ (4 - q) dq = [4q - q²/2]₀⁴ = 8</span>
-                </div>
-            </div>
-
-            <h2>Probleemoplossing Strategie</h2>
-            <ol>
-                <li><strong>Identificeer het probleemtype</strong><br>
-                - Oppervlakte, volume, werk, etc.</li>
-                <li><strong>Stel de juiste integraal op</strong><br>
-                - Gebruik de juiste formule<br>
-                - Bepaal de grenzen</li>
-                <li><strong>Los de integraal op</strong><br>
-                - Kies de juiste techniek<br>
-                - Wees precies met berekeningen</li>
-                <li><strong>Interpreteer het resultaat</strong><br>
-                - Geef antwoord in juiste eenheden<br>
-                - Controleer redelijkheid</li>
-            </ol>
-
-            <h2>Controlepunten</h2>
-            <ul>
-                <li><strong>Eenheden:</strong> Zijn alle eenheden consistent?</li>
-                <li><strong>Bereik:</strong> Zijn de grenzen correct?</li>
-                <li><strong>Teken:</strong> Is de integraal positief waar nodig?</li>
-                <li><strong>Realiteit:</strong> Is het antwoord realistisch?</li>
-            </ul>
-        </section>
-    </main>
-
-    <script src="script.js"></script>
 </body>
 </html>
